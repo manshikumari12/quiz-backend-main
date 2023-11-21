@@ -1,7 +1,7 @@
 const express =require("express")
 require("dotenv").config();
 const {userroute}=require("./route/user.route")
-
+const {quizrouter}=require("./route/quiz.route")
 const {connection} =require("./db")
 const app=express()
 const cors = require("cors")
@@ -13,7 +13,7 @@ app.get("/", (req,res) => {
   });
 
   app.use("/user", userroute);
-
+  app.use("/quiz", quizrouter);
 
 
 
@@ -27,5 +27,5 @@ app.listen("1111",async ()=>{
     } catch (error) {
        console.log(error) 
     }
-    console.log(`server is running at port ${process.env.port}`);
+    console.log(`server is running at port 1111`);
 })
